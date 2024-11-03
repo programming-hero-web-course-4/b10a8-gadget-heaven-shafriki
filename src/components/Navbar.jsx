@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
     const location = useLocation();
@@ -48,8 +50,9 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end gap-5">
+                    <Link><i class="fa-solid fa-cart-shopping p-2 border-2 rounded-full"></i></Link>
+                    <Link><i class="fa-regular fa-heart p-2 border-2 rounded-full"></i></Link>
                 </div>
             </div>
         </div>
