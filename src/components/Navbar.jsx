@@ -9,9 +9,9 @@ const Navbar = () => {
 
     const links = (
         <>
-            <NavLink to='/home'>Home</NavLink>
-            <NavLink to='/statistics'>Statistics</NavLink>
-            <NavLink to='/dashboard'>Dashboard</NavLink>
+            <NavLink to='/home' className={({ isActive }) => (isActive ? 'active-link' : '')}>Home</NavLink>
+            <NavLink to='/statistics' className={({ isActive }) => (isActive ? 'active-link' : '')}>Statistics</NavLink>
+            <NavLink to='/dashboard' className={({ isActive }) => (isActive ? 'active-link' : '')}>Dashboard</NavLink>
         </>
     );
 

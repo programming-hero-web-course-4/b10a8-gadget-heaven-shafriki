@@ -10,8 +10,8 @@ const Banner = () => {
                 <button className='btn rounded-full text-[#9538E2] font-bold mt-5'>Shop Now</button>
             </div>
 
-            <div className='absolute bottom-28 md:-bottom-24 left-1/2 transform -translate-x-1/2 border-2 rounded-2xl'>
-                <img src={bannerImage} alt="" className='md:w-[40rem] border-[12px] rounded-2xl border-[#F6F6F6] border-opacity-30'/>
+            <div className='absolute bottom-28 md:-bottom-16 left-1/2 transform -translate-x-1/2 border-2 rounded-2xl'>
+                <img src={bannerImage} alt="" className='md:w-[60rem] md:h-[26rem] border-[12px] rounded-2xl border-[#F6F6F6] border-opacity-30'/>
             </div>
         </div>
     );

@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 /* https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-shafriki */
+
+.active-link {
+    font-weight: bold; 
+    color: orange;
+
+}
