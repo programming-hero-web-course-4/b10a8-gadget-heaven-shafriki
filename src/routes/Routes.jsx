@@ -7,6 +7,7 @@ import MainLayout from "../layouts/MainLayout";
 import Details from "../pages/Details";
 import Trouble from "../pages/Trouble";
 import Branch from "../components/Branch";
+import Error from "../pages/Error";
 
 const detailsLoader = ({ location }) => {
     return location.state; 
@@ -16,6 +17,7 @@ const routes = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement:<Error></Error>,
         children: [
             {
                 index: true,  
