@@ -19,7 +19,7 @@ const routes = createBrowserRouter([
             element: <Statistics></Statistics>
         },
         {
-            path: '/dashbord',
+            path: '/dashboard',
             element: <Dashboard></Dashboard>
         }
       ]
