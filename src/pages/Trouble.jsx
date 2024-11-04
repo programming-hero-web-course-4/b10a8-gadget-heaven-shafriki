@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Trouble = () => {
+    useEffect(() => {
+        document.title = "Trouble | Gadget Heaven";
+    }, []);
+
     const [tab, setTab] = useState("mobile");
     const [formData, setFormData] = useState({
         phone: "",
@@ -11,7 +15,6 @@ const Trouble = () => {
     });
 
     const handleSubmit = () => {
-        
         // check valid input here
         if (tab === "mobile") {
             if (!formData.phone) {
@@ -136,7 +139,6 @@ const Trouble = () => {
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
                 </div>
-
 
                 <div className="flex space-x-2 mb-4">
                     <button onClick={handleSubmit} className="w-full bg-green-500 text-white py-2 rounded">Submit</button>

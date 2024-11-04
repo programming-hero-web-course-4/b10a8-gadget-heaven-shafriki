@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Import useEffect
 import { useLocation } from 'react-router-dom'; 
 
 const Details = () => {
+    useEffect(() => {
+        document.title = "Details | Gadget Heaven"; 
+    }, []); 
+
     const location = useLocation(); 
     const product = location.state; 
 
@@ -47,7 +51,7 @@ const Details = () => {
                           <svg key={index} className="w-4  h-4 " fill={index < product.rating ? "currentColor" : "none"} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 .587l3.668 7.568 8.292 1.206-6 5.828 1.414 8.29L12 18.896l-7.374 3.865L6.342 16l-6-5.828 8.292-1.206L12 .587z" />
                           </svg>
-                        ))}
+                        ))}                        
                       </div>
                       <span className="ml-2 text-xs bg-gray-200  py-1 px-2 rounded-full">{product.rating}</span>
                     </div>

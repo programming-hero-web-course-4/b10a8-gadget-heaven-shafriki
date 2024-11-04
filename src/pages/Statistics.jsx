@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Statistics = () => {
+    useEffect(() => {
+        document.title = "Statistics | Gadget Heaven";
+    }, []);
+
     return (
         <div>
-            Statistics
+            Statistics optional page vai
         </div>
     );
 };
