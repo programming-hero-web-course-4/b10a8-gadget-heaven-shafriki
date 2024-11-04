@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { ProductsContext } from '../ProductsContext'; // Import ProductsContext
 
 const Products = () => {
-    const [products, setProducts] = useState([]);
+    const products = useContext(ProductsContext); // Use the context to get products
     const [selectedCategory, setSelectedCategory] = useState('All Products');
     const navigate = useNavigate(); // Initialize useNavigate
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch('Products.json'); 
-            const data = await response.json();
-            setProducts(data);
-        };
-
-        fetchData();
-    }, []);
 
     const categories = [
         'All Products',
