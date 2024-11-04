@@ -54,7 +54,7 @@ const Products = () => {
                             <h2 className='font-semibold text-lg mt-2'>{product.product_title}</h2>
                             <p className='font-medium text-xs md:text-base text-[#09080F99] mt-2'>${product.price.toFixed(2)}</p>
                             
-                            <div className='flex flex-col space-y-2 mt-3'>
+                            <div className='flex flex-col items-start space-y-2 mt-3'>
                                 <button className='btn rounded-full border-2 border-[#9538E2] text-[#9538E2]' onClick={() => navigate('/details', { state: product })} >View Details</button>
                             </div>
                         </div>

@@ -1,13 +1,14 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-
 export const ProductsContext = createContext();
 
 const ProductsProvider = ({ children }) => {
-    const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
-    const [wishlist, setWishlist] = useState([]);
 
+    const [products, setProducts] = useState([]);
+
+    const [cart, setCart] = useState([]);
+    
+    const [wishlist, setWishlist] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,7 +18,6 @@ const ProductsProvider = ({ children }) => {
         };
         fetchData();
     }, []);
-    
 
     const addToCart = (product) => {
         setCart((prevCart) => [...prevCart, product]);
@@ -31,8 +31,20 @@ const ProductsProvider = ({ children }) => {
         setWishlist((prevWishlist) => prevWishlist.filter(item => item.product_id !== productId));
     };
 
+    const removeFromCart = (productId) => {
+        setCart((prevCart) => prevCart.filter(item => item.product_id !== productId));
+    };
+
+    const clearCart = () => {
+        setCart([]); 
+    };
+
+    const clearWishlist = () => {
+        setWishlist([]); 
+    };
+
     return (
-        <ProductsContext.Provider value={{ products, cart, wishlist, addToCart, addToWishlist, removeFromWishlist }}>
+        <ProductsContext.Provider value={{ products, cart, wishlist, addToCart, addToWishlist, removeFromWishlist, removeFromCart, clearCart, clearWishlist }}>
             {children}
         </ProductsContext.Provider>
     );
