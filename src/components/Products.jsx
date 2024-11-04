@@ -1,25 +1,26 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { ProductsContext } from '../ProductsContext'; // Import ProductsContext
+import { useNavigate } from 'react-router-dom';
+import { ProductsContext } from '../ProductsContext';
 
 const Products = () => {
-    const products = useContext(ProductsContext); // Use the context to get products
-    const [selectedCategory, setSelectedCategory] = useState('All Products');
-    const navigate = useNavigate(); // Initialize useNavigate
+    const { products } = useContext(ProductsContext); 
 
+    const [selectedCategory, setSelectedCategory] = useState('All Products');
+    const navigate = useNavigate();
+
+    // all category here
     const categories = [
         'All Products',
         'Laptops',
         'Phones',
         'iPhones',
+        'Head Phone',
         'MacBooks',
         'Smart Watches',
         'Accessories',
     ];
 
-    const filteredProducts = selectedCategory === 'All Products'
-        ? products
-        : products.filter(product => product.category === selectedCategory);
+    const filteredProducts = selectedCategory === 'All Products' ? products : products.filter(product => product.category === selectedCategory);
 
     return (
         <div className='max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-4 mb-20'>
@@ -43,19 +44,22 @@ const Products = () => {
             </div>
 
             <div className='md:col-span-4 grid grid-cols-1 px-4 md:px-0 md:grid-cols-3 gap-4'>
-                {filteredProducts.map((product) => (
-                    <div key={product.product_id} className='border rounded-xl shadow-lg p-4'>
-                        <img src={product.product_image} alt={product.product_title} className='w-full md:h-56 object-cover rounded-xl p-3 border-2' />
-                        <h2 className='font-semibold text-lg mt-2'>{product.product_title}</h2>
-                        <p className='font-medium text-xs md:text-base text-[#09080F99] mt-2'>${product.price.toFixed(2)}</p>
-                        <button 
-                            className='btn rounded-full mt-3 border-2 border-[#9538E2] text-[#9538E2]'
-                            onClick={() => navigate('/details', { state: product })} // Navigate with product data
-                        >
-                            View Details
-                        </button>
-                    </div>
-                ))}
+                {filteredProducts.length === 0 ? (
+                    <div className='md:col-span-3 text-center font-medium text-lg mt-4'>
+                        <p className='md:text-5xl mt-32 text-red-500'>Sorry !! No data available.</p>
+                    </div>) : 
+                    ( filteredProducts.map((product) => (
+                        <div key={product.product_id} className='border rounded-xl shadow-lg p-4'>
+                            <img src={product.product_image} alt={product.product_title} className='w-full md:h-56 object-cover rounded-xl p-3 border-2' />
+                            <h2 className='font-semibold text-lg mt-2'>{product.product_title}</h2>
+                            <p className='font-medium text-xs md:text-base text-[#09080F99] mt-2'>${product.price.toFixed(2)}</p>
+                            
+                            <div className='flex flex-col space-y-2 mt-3'>
+                                <button className='btn rounded-full border-2 border-[#9538E2] text-[#9538E2]' onClick={() => navigate('/details', { state: product })} >View Details</button>
+                            </div>
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     );
