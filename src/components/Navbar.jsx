@@ -55,7 +55,7 @@ const Navbar = () => {
                 {/* cart icon length */}
                 <div className="navbar-end gap-5">
                     <div className="relative">
-                        <i className="fa-solid fa-cart-shopping p-2 border-2 rounded-full" id='cart-icon'></i>
+                        <i className="fa-solid fa-cart-shopping p-2 border-2  rounded-full" id='cart-icon'></i>
                         {cart.length > 0 && (
                             <span className="absolute top-0 right-0 bg-green-500 text-white rounded-full text-xs px-1">
                                 {cart.length}
