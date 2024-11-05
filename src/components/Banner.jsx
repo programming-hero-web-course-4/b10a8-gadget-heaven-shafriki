@@ -12,7 +12,7 @@ const Banner = () => {
     return (
         <div className='mb-40 md:mb-96'>
             <div className='px-3 bg-[#9538E2] h-[30rem] flex flex-col items-center justify-center mx-2 md:mx-5 rounded-2xl border-[7px] border-[#F6F6F6]'>
-                <h1 className='text-xl md:w-3/5 md:text-5xl text-center text-white font-bold mb-4'>
+                <h1 className='text-xl md:w-4/6 md:text-5xl text-center text-white font-bold mb-4'>
                     Upgrade Your Tech Accessorize with Gadget Heaven Accessories
                 </h1>
                 <p className='text-xs md:text-base text-white md:w-3/6 text-center'>

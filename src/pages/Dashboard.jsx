@@ -81,7 +81,7 @@ const Dashboard = () => {
                             <div className='flex items-center gap-4'>
                                 <p className='text-lg font-medium'>Total: ${totalCostCalculation()}</p>
 
-                                <button onClick={handleSortByPrice} className='btn border-2 border-[#9538E2] hover:border-amber-500 hover:bg-transparent rounded-full bg-transparent text-[#9538E2] '>Sort by Price</button>
+                                <button onClick={handleSortByPrice} className='btn border-2 border-[#9538E2] hover:border-amber-500 hover:bg-transparent rounded-full bg-transparent text-[#9538E2] '>Sort by Price<i class="fa-solid fa-sort"></i></button>
                                 
                                 <button onClick={handlePurchase} className='btn border-none rounded-full bg-gradient-to-r from-red-500 to-[#9538E2] md:px-5 text-white'>Purchase</button>
                             </div>
