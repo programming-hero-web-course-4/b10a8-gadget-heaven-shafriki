@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Link } from "react-router-dom";
-
+import { ProductsContext } from '../ProductsContext';
 
 const Navbar = () => {
     const location = useLocation();
-
-    // Check if the current route is /home
     const isHomeRoute = location.pathname === '/home';
+
+    const { cart, wishlist } = useContext(ProductsContext);
 
     const links = (
         <>
@@ -52,9 +51,27 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
+
+                {/* cart icon length */}
                 <div className="navbar-end gap-5">
-                    <Link><i class="fa-solid fa-cart-shopping p-2 border-2 rounded-full"></i></Link>
-                    <Link><i class="fa-regular fa-heart p-2 border-2 rounded-full"></i></Link>
+                    <div className="relative">
+                        <i className="fa-solid fa-cart-shopping p-2 border-2 rounded-full" id='cart-icon'></i>
+                        {cart.length > 0 && (
+                            <span className="absolute top-0 right-0 bg-green-500 text-white rounded-full text-xs px-1">
+                                {cart.length}
+                            </span>
+                        )}
+                    </div>
+
+                    {/* wishlist icon length */}
+                    <div className="relative">
+                        <i className="fa-regular fa-heart p-2 border-2 rounded-full" id='wish-icon'></i>
+                        {wishlist.length > 0 && (
+                            <span className="absolute top-0 right-0 bg-green-500 text-white rounded-full text-xs px-1">
+                                {wishlist.length}
+                            </span>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
