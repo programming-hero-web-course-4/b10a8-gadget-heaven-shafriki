@@ -83,7 +83,7 @@ const Dashboard = () => {
 
                                 <button onClick={handleSortByPrice} className='btn border-2 border-[#9538E2] hover:border-amber-500 hover:bg-transparent rounded-full bg-transparent text-[#9538E2] '>Sort by Price</button>
                                 
-                                <button onClick={handlePurchase} className='btn border-none rounded-full bg-gradient-to-r from-red-500 to-[#9538E2] px-5 text-white'>Purchase</button>
+                                <button onClick={handlePurchase} className='btn border-none rounded-full bg-gradient-to-r from-red-500 to-[#9538E2] md:px-5 text-white'>Purchase</button>
                             </div>
                         </div>
                         {sortedCart.length ? sortedCart.map(item => (
@@ -92,7 +92,7 @@ const Dashboard = () => {
                                 <div className='flex flex-col items-start'>
                                     <p className='text-sm md:text-lg font-semibold'>{item.product_title}</p>
                                     <p className='text-xs md:text-sm text-gray-500'>{item.description}</p>
-                                    <p className='text-xs md:text-base font-medium text-gray-700'>${item.price.toFixed(2)}</p>
+                                    <p className='text-xs md:text-base font-medium text-gray-700'>Price: ${item.price.toFixed(2)}</p>
                                 </div>
                                 <div className='ml-auto'>
                                     <button id='del' 
@@ -107,14 +107,14 @@ const Dashboard = () => {
                     </div>
                 ) : (
                     <div>
-                        <p className='text-xl font-bold my-5'>Wishlist</p>
+                        <p className='text-xl font-bold my-5'>WishList</p>
                         {wishlist.length ? wishlist.map(item => (
                             <div key={item.product_id} className='p-4 border-2 shadow-md mb-3 flex items-center bg-[#D1B3FF] border-[#9538E2] rounded-xl'>
                                 <img src={item.product_image} alt={item.product_title} className='h-28 md:h-36 w-28 md:w-36 mr-4 border-2 rounded-xl' />
                                 <div className='flex flex-col items-start'>
                                     <p className='text-sm md:text-lg font-semibold'>{item.product_title}</p>
                                     <p className='text-xs md:text-sm text-gray-500'>{item.description}</p>
-                                    <p className='text-xs md:text-base font-medium text-gray-700'>${item.price.toFixed(2)}</p>
+                                    <p className='text-xs md:text-base font-medium text-gray-700'>Price: ${item.price.toFixed(2)}</p>
                                     <button onClick={() => handleAddToCart(item)} disabled={disabledButtons[item.product_id] || cart.some(cartItem => cartItem.product_id === item.product_id)} className='btn border-none mt-1 rounded-full bg-[#9538E2] text-xs text-white'>
                                         {disabledButtons[item.product_id] || cart.some(cartItem => cartItem.product_id === item.product_id) ? 'Added to Cart' : 'Add to Cart'}
                                     </button>

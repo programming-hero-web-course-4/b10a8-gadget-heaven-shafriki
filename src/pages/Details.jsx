@@ -49,11 +49,11 @@ const Details = () => {
 
             <div className='flex flex-col items-center text-white relative'>
 
-                <h1 className='font-bold text-lg py-2'>Product Details</h1>
+                <h1 className='font-bold md:text-xl py-2'>Product Details</h1>
 
                 <p className='md:w-2/5 text-center text-sm'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
 
-                <div className="bg-white text-black max-w-screen-lg mx-auto absolute top-28 p-4 rounded-lg shadow-lg">
+                <div className="bg-white text-black max-w-screen-lg mx-auto absolute top-28 p-4 rounded-xl shadow-lg">
                     <div className="hero-content flex flex-col lg:flex-row">
 
                         <img src={product.product_image} className="max-w-full lg:max-w-sm rounded-lg mb-4 lg:mb-0 lg:mr-6 border-2 py-2"/>
@@ -71,7 +71,7 @@ const Details = () => {
 
                                 <h3 className="font-semibold mt-4">Specifications:</h3>
 
-                                <ul className="list-decimal list-inside mb-4 text-xs">
+                                <ul className="list-decimal list-inside mb-4 text-xs text-gray-500">
                                     {product.specifications.map((spec, index) => (
                                         <li key={index}>{spec}</li>
                                     ))}</ul>
@@ -94,7 +94,7 @@ const Details = () => {
 
                             <div className='flex items-center gap-6'>
 
-                                <button className="btn btn-primary rounded-full mt-4 w-full" onClick={handleAddToCart} disabled={isAddedToCart}> Add to Cart </button>
+                                <button className="btn btn-primary rounded-full mt-4 w-full" onClick={handleAddToCart} disabled={isAddedToCart}> Add to Cart <i class="fa-solid fa-cart-shopping"></i> </button>
 
                                 <i className="fa-regular fa-heart mt-5 bg-gray-200 p-1 rounded-full border-2 cursor-pointer" onClick={handleAddToWishlist}></i>
 

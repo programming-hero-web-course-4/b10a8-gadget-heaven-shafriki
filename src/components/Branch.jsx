@@ -9,7 +9,14 @@ const Branch = () => {
     const branchData = useLoaderData();
 
     return (
-        <div className="grid grid-cols-1 px-3 md:px-0 md:grid-cols-3 gap-5 max-w-screen-xl mx-auto mt-10">
+        <div>
+            <div className='bg-[#9538E2] flex flex-col items-center py-5 relative'>
+            <h2 className="text-base md:text-2xl font-semibold text-center mb-1 text-white">Get In Touch</h2>
+
+            <p className="text-xs md:text-base text-center text-gray-200 w-4/6 md:w-3/6 mb-6">Discover Gadget Heaven everywhere! Access all branch locations and contact numbers here for seamless support and assistance anytime, anywhere.</p>
+            </div>
+
+            <div className="grid grid-cols-1 px-3 md:px-0 md:grid-cols-3 gap-5 max-w-screen-xl mx-auto mt-10">
             {branchData.map((branch) => (
                 <div key={branch.contact} className="p-4 bg-[#D6F1F9] border-2 border-[#3B6978] rounded-lg shadow-md flex items-center gap-5">
 
@@ -30,6 +37,7 @@ const Branch = () => {
                     </div>
                 </div>
             ))}
+        </div>
         </div>
     );
 };

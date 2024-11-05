@@ -6,8 +6,8 @@ const Statistics = () => {
     }, []);
 
     return (
-        <div>
-            Statistics optional page vai
+        <div className='text-center mt-52'>
+            <p className='md:text-5xl font-bold text-rose-500'>No Data Found. Working on it!</p>
         </div>
     );
 };
