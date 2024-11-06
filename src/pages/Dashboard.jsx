@@ -24,6 +24,7 @@ const Dashboard = () => {
         if (disabledButtons[item.product_id] || cart.some(cartItem => cartItem.product_id === item.product_id)) {
             toast.info("Already added to cart");
             return;
+
         }
         addToCart(item);
         setDisabledButtons((prev) => ({ ...prev, [item.product_id]: true }));
@@ -77,29 +78,34 @@ const Dashboard = () => {
                 {activeTab === 'Cart' ? (
                     <div>
                         <div className='flex justify-between items-center mb-4'>
+
                             <h2 className='text-xl font-bold'>Cart</h2>
+
                             <div className='flex items-center gap-4'>
                                 <p className='text-lg font-medium'>Total: ${totalCostCalculation()}</p>
 
                                 <button onClick={handleSortByPrice} className='btn border-2 border-[#9538E2] hover:border-amber-500 hover:bg-transparent rounded-full bg-transparent text-[#9538E2] '>Sort by Price<i class="fa-solid fa-sort"></i></button>
                                 
-                                <button onClick={handlePurchase} className='btn border-none rounded-full bg-gradient-to-r from-red-500 to-[#9538E2] md:px-5 text-white'>Purchase</button>
+                                <button onClick={handlePurchase} disabled={!sortedCart.length || totalCostCalculation() === "0.00"} className={`btn border-none rounded-full bg-gradient-to-r from-red-500 to-[#9538E2] md:px-5 text-white ${!sortedCart.length || totalCostCalculation() === "0.00" ? 'opacity-50 cursor-not-allowed' : ''}`}> Purchase </button>
                             </div>
                         </div>
+
                         {sortedCart.length ? sortedCart.map(item => (
+
                             <div key={item.product_id} className='p-4 border-2 shadow-md mb-3 flex items-center bg-[#D6F1F9] border-[#38A1B6] rounded-xl'>
+
                                 <img src={item.product_image} alt={item.product_title} className='h-28 md:h-36 w-28 md:w-36 mr-4 border-2 rounded-xl' />
+
                                 <div className='flex flex-col items-start'>
+
                                     <p className='text-sm md:text-lg font-semibold'>{item.product_title}</p>
                                     <p className='text-xs md:text-sm text-gray-500'>{item.description}</p>
                                     <p className='text-xs md:text-base font-medium text-gray-700'>Price: ${item.price.toFixed(2)}</p>
+
                                 </div>
+
                                 <div className='ml-auto'>
-                                    <button id='del' 
-                                        onClick={() => handleDeleteFromCart(item.product_id)} 
-                                        className='btn rounded-full border-none bg-red-200'
-                                    >
-                                        <i className="fa-solid fa-trash-can-arrow-up text-xl text-red-500 cursor-pointer"></i>
+                                    <button id='del' onClick={() => handleDeleteFromCart(item.product_id)} className='btn rounded-full border-none bg-red-200'> <i className="fa-solid fa-trash-can-arrow-up text-xl text-red-500 cursor-pointer"></i>
                                     </button>
                                 </div>
                             </div>
@@ -120,12 +126,7 @@ const Dashboard = () => {
                                     </button>
                                 </div>
                                 <div className='ml-auto'>
-                                    <button 
-                                        id='delete' 
-                                        onClick={() => handleDeleteFromWishlist(item.product_id)} 
-                                        className='btn rounded-full border-none bg-red-200'
-                                    >
-                                        <i className="fa-solid fa-trash-can-arrow-up text-xl text-red-500 cursor-pointer"></i>
+                                    <button id='delete'  onClick={() => handleDeleteFromWishlist(item.product_id)} className='btn rounded-full border-none bg-red-200' > <i className="fa-solid fa-trash-can-arrow-up text-xl text-red-500 cursor-pointer"></i>
                                     </button>
                                 </div>
                             </div>
